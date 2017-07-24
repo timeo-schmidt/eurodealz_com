@@ -1,0 +1,159 @@
+.navbar {
+  height: 100px;
+  width: 100vw;
+  background-color: white;
+  border-bottom: 1px solid #BFBFBF;
+}
+
+.logo-image {
+  height: 90px;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.deals-eintragen-button {
+  float: right;
+  background-image: linear-gradient(-135deg, #56CCF2 0%, #2F80ED 100%);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.50);
+  color: white;
+  border-radius: 3px;
+  height: 40px;
+  margin-top: 30px;
+  margin-right: 50px;
+  transition: box-shadow 0.3s;
+  @media (max-width: 700px) {
+    display: none;
+  }
+}
+
+.deals-eintragen-button:hover {
+  transition: box-shadow 0.3s;
+  cursor: pointer;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.60) !important;
+}
+
+.deals-eintragen-button-text {
+  margin-left: 20px;
+  margin-right: 20px;
+  line-height: 40px;
+  text-align: center;
+  font-family: 'Roboto';
+  font-weight: bold;
+}
+
+.user-icon {
+  background-image: url('../assets/person.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50px;
+  width: 50px;
+  float: right;
+  margin-top: 25px;
+  margin-right: 20px;
+  @media (max-width: 700px) {
+    display: none;
+  }
+}
+
+.tabs {
+  display: block;
+  margin: 0 auto;
+  font-size: 1.3em !important;
+  text-align: center;
+  font-family: 'Roboto';
+  line-height: 2em;
+  background: lightblue;
+  color: grey;
+  @media (max-width: 700px) {
+    width: 100vw;
+  }
+  @media (min-width: 701px) {
+    width: 30vw;
+  }
+}
+
+.tab:hover {
+  color: #555;
+}
+
+.tab {
+  display: inline;
+  width: 33%;
+  overflow: hidden !important;
+}
+
+*:focus {
+  outline: none !important;
+}
+
+.tabs:hover {
+  cursor: pointer;
+}
+
+.thot {
+  float: left;
+}
+
+.tnew {
+  float: left;
+}
+
+.tselected {
+  float: left;
+}
+
+.tab-icon-wrapper {
+  width: 100%;
+  display: block !important;
+  margin: 0 auto -15px !important;
+}
+
+.tab-icon-wrapper-start {
+  float: right;
+}
+
+.tab-icon {
+  width: 1.2em;
+}
+
+.tab-underline {
+  border-bottom: 2px solid #2F80ED;
+}
+
+.footer-wrapper {
+  width: 100vw;
+  background-color: white;
+  border-top: 1px solid lightgrey;
+  text-align: center;
+}
+
+.link {
+  display: inline;
+  margin-left: 20px;
+  font-family: "Roboto";
+  color: grey;
+  line-height: 30px;
+  font-size: 0.8em;
+}
+
+.link:hover {
+  cursor: pointer;
+  color: #555;
+}
+
+.menu-btn {
+  background: white;
+  color: grey;
+}
+
+.menu-icon {
+  font-size: 3em;
+}
+
+.menu-btn-wrapper {
+  margin-top: 1.5em;
+
+  @media (min-width: 701px) {
+    display: none;
+  }
+}

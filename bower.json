@@ -1,0 +1,20 @@
+{
+  "name": "eurodealz-v1",
+  "description": "",
+  "main": "",
+  "authors": [
+    "timeo-schmidt <timeo.schmidt@gmx.de>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/timeo-schmidt/eurodealz-com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}

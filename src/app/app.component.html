@@ -1,0 +1,89 @@
+<div class="navbar">
+  <img class="logo-image" src="./assets/eurodealz-logo.png" />
+  <div class="user-icon">
+  </div>
+  <div class="deals-eintragen-button">
+    <div class="deals-eintragen-button-text">
+      DEALS EINTRAGEN
+    </div>
+  </div>
+
+  <div class="btn-group menu-btn-wrapper pull-right" dropdown>
+
+    <button dropdownToggle type="button" class="btn menu-btn dropdown-toggle">
+    <i class="material-icons menu-icon">menu</i>
+    </button>
+
+    <ul *dropdownMenu class="dropdown-menu" role="menu">
+      <li role="menuitem"><a class="dropdown-item" href="#">Login/Account</a></li>
+      <li role="menuitem"><a class="dropdown-item" href="#">Account/Login</a></li>
+    </ul>
+  </div>
+
+
+</div>
+
+<br />
+<div class="tabs">
+  <div class="tab-panel">
+
+    <div routerLink="/hot" routerLinkActive="active" [ngClass]="{ 'tab-underline': hotActive }" class="tab thot" (click)="hot()">
+      <div class="tab-icon-wrapper">
+        <i class="material-icons tab-icon">whatshot</i>
+      </div>
+      <div class="tab-text-wrapper">
+        HOT
+      </div>
+    </div>
+    <div routerLink="/new" [ngClass]="{ 'tab-underline': newActive }" class="tab tnew" (click)="new()">
+      <div class="tab-icon-wrapper">
+        <i class="material-icons tab-icon">new_releases</i>
+      </div>
+      <div class="tab-text-wrapper">
+        NEW
+      </div>
+    </div>
+    <div routerLink="/selected" [ngClass]="{ 'tab-underline': selectedActive }" class="tab tselected" (click)="selected()">
+      <div class="tab-icon-wrapper">
+        <i class="material-icons star-icon tab-icon">star_rate</i>
+      </div>
+      <div class="tab-text-wrapper">
+        SELECTED
+      </div>
+    </div>
+
+  </div>
+</div>
+<br /><br /><br />
+
+<br />
+<!-- Items Loaded within -->
+<router-outlet></router-outlet>
+
+<br /><br />
+
+
+<footer>
+  <div class="footer-wrapper">
+    <div class="linkbox">
+      <div class="link">
+        SO FUNKTIONIERT EURODEALZ
+      </div>
+      <div class="link">
+        KONTAKT
+      </div>
+      <div class="link">
+        PARTNERSCHAFT
+      </div>
+      <div class="link">
+        AGB
+      </div>
+      <div class="link">
+        DATENSCHUTZERKLÄRUNG
+      </div>
+      <div class="link">
+        IMPRESSUM
+      </div>
+    </div>
+  </div>
+</footer>
