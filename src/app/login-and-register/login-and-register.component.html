@@ -1,0 +1,94 @@
+<div class="overlay" (click)="closeLogin();">
+
+
+  <div (click)="$event.stopPropagation()" class="login-box">
+
+    <div (click)="closeLogin();" class="close-login">
+      <i class="material-icons close-login-icon">close</i>
+    </div><br /><br />
+    <br />
+    <div class="login-banner-circle">
+      <i class="material-icons login-icon">account_circle</i>
+    </div>
+
+    <div class="LoginWrapper" *ngIf="!actionSucceeded">
+
+    <div *ngIf="!responseLoading" class="tab-wrapper">
+      <div (click)="setLogin()" class="tab tab-login" [ngClass]="{'tab-active': loginTab}">
+        Login
+      </div>
+      <div (click)="setNewAccount()" class="tab tab-new" [ngClass]="{'tab-active': !loginTab}">
+        Account Erstellen
+      </div><br /><br /><br />
+      <div class="login-form" *ngIf="loginTab">
+        <div class="email-field field-wrapper">
+          <i class="material-icons input-icon">email</i>
+          <input [(ngModel)]="loginEmail" type="email" id="email-login" name="email-login" placeholder="Email Addresss">
+        </div><br /><br /><br />
+        <div class="password-field field-wrapper">
+          <i class="material-icons input-icon">security</i>
+          <input [(ngModel)]="loginPassword" type="password" id="password-field" name="password-field" placeholder="password">
+        </div>
+        <div class="error-message">
+          <br /><br /><br /> {{errorMessage}}
+        </div>
+        <div class="submit-button-area">
+          <button (click)="loginUser();$event.stopPropagation()" type="button" class="btn btn-success submit-button text-center" btnCheckbox btnCheckboxTrue="1" btnCheckboxFalse="0">
+            Anmelden
+          </button>
+        </div>
+      </div>
+      <div class="signup-form" *ngIf="!loginTab">
+        <div class="field-wrapper">
+          <i class="material-icons input-icon">person</i>
+          <input [(ngModel)]="signupUsername" type="text" id="username-field" name="username-field" placeholder="Benutzername">
+        </div><br /><br /><br />
+        <div class="field-wrapper">
+          <i class="material-icons input-icon">email</i>
+          <input [(ngModel)]="signupEmail" type="email" id="email-new" name="email-new" placeholder="Email Addresse">
+        </div><br /><br /><br />
+        <div class="field-wrapper">
+          <i class="material-icons input-icon">security</i>
+          <input [(ngModel)]="signupPassword" type="password" id="password-new" name="password-new" placeholder="Sicheres Password">
+        </div>
+        <div class="error-message">
+          <br /><br /><br /> {{errorMessage}}
+        </div>
+        <div class="submit-button-area">
+          <button (click)="createAccount()" type="button" class="btn btn-success submit-button text-center" btnCheckbox btnCheckboxTrue="1" btnCheckboxFalse="0">
+            Account Erstellen
+          </button>
+        </div>
+      </div>
+      <div class="forgot-password">
+        Password vergessen ?
+      </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div *ngIf="responseLoading" class="sk-fading-circle">
+      <div class="sk-circle1 sk-circle"></div>
+      <div class="sk-circle2 sk-circle"></div>
+      <div class="sk-circle3 sk-circle"></div>
+      <div class="sk-circle4 sk-circle"></div>
+      <div class="sk-circle5 sk-circle"></div>
+      <div class="sk-circle6 sk-circle"></div>
+      <div class="sk-circle7 sk-circle"></div>
+      <div class="sk-circle8 sk-circle"></div>
+      <div class="sk-circle9 sk-circle"></div>
+      <div class="sk-circle10 sk-circle"></div>
+      <div class="sk-circle11 sk-circle"></div>
+      <div class="sk-circle12 sk-circle"></div>
+    </div>
+
+  </div>
+    <div *ngIf="actionSucceeded" class="success-message">
+      <i class="material-icons done-tick">done</i><br />
+      Das hat geklappt!
+      <button [routerLink]="['/']" type="button" class="btn btn-primary submit-button text-center to-home" btnCheckbox btnCheckboxTrue="1" btnCheckboxFalse="0">
+        Zur Startseite
+      </button>
+    </div>
+
+  </div>
+</div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MdTabsModule, MdIconModule } from '@angular/material';
+
 import { RouterModule } from "@angular/router";
 
 
@@ -19,7 +19,7 @@ export class AppComponent {
   newActive = false;
   routenow: any;
 
-  
+
   ngOnInit() {
     console.log(location.pathname);
     this.routenow = location.pathname;
@@ -32,6 +32,9 @@ export class AppComponent {
     }
     if (this.routenow == '/new') {
       this.newActive  = true;
+    }
+    if (this.routenow == '/') {
+      this.hotActive  = true;
     }
   }
 

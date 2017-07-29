@@ -14,14 +14,34 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
-
 import { BsDropdownModule } from 'ngx-bootstrap';
 
+
+// Importing AF2 Module
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { LoginAndRegisterComponent } from './login-and-register/login-and-register.component';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AdminPpanelComponent } from './admin-ppanel/admin-ppanel.component';
+
+
+// AF2 Settings
+const firebaseConfig = {
+  apiKey: "AIzaSyC-D0Wiqmnt3zmgdGwpIVWgAwaVXUBRpkk",
+  authDomain: "eurodealz-2973e.firebaseapp.com",
+  databaseURL: "https://eurodealz-2973e.firebaseio.com",
+  storageBucket: "eurodealz-2973e.appspot.com",
+  messagingSenderId: "957068896940"
+};
+
+
 const appRoutes: Routes = [
-  { path: 'hot',          component:  HotComponent},
-  { path: 'new',          component:  NewComponent },
-  { path: 'selected',     component:  SelectedComponent },
-  { path: '**',           component:  HotComponent }
+
+  { path: 'hot', component: HotComponent },
+  { path: 'new', component: NewComponent },
+  { path: 'selected', component: SelectedComponent },
+  { path: 'login', component: LoginAndRegisterComponent },
+  { path: '**', component: HotComponent }
 ];
 
 
@@ -30,7 +50,9 @@ const appRoutes: Routes = [
     AppComponent,
     HotComponent,
     NewComponent,
-    SelectedComponent
+    SelectedComponent,
+    LoginAndRegisterComponent,
+    AdminPpanelComponent
   ],
   imports: [
     BrowserModule,
@@ -41,10 +63,14 @@ const appRoutes: Routes = [
     NgbModule.forRoot(),
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    )
+      { enableTracing: false }
+    ),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule
   ],
-  providers: [],
+  providers: [,
+    AngularFireDatabase
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
