@@ -7,3 +7,13 @@ body {
   margin: 0;
   background: #F7F6F6;
 }
+
+
+.to-deal-button a{
+  color: white;
+  text-decoration: none;
+}
+.to-deal-button a:hover{
+  color: white;
+  text-decoration: none;
+}

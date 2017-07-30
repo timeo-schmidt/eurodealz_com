@@ -4,6 +4,9 @@ import { RouterModule, Routes, RouterLink } from "@angular/router";
 
 import { AppComponent } from './app.component';
 
+import { ProductFetchingService } from "./product-fetching.service";
+
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MdTabsModule, MdIconModule } from '@angular/material';
 import { HotComponent } from './hot/hot.component';
@@ -22,7 +25,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { LoginAndRegisterComponent } from './login-and-register/login-and-register.component';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { AdminPpanelComponent } from './admin-ppanel/admin-ppanel.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+
 
 
 // AF2 Settings
@@ -41,6 +45,7 @@ const appRoutes: Routes = [
   { path: 'new', component: NewComponent },
   { path: 'selected', component: SelectedComponent },
   { path: 'login', component: LoginAndRegisterComponent },
+  { path: 'admin', component: AdminPanelComponent },
   { path: '**', component: HotComponent }
 ];
 
@@ -52,7 +57,7 @@ const appRoutes: Routes = [
     NewComponent,
     SelectedComponent,
     LoginAndRegisterComponent,
-    AdminPpanelComponent
+    AdminPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -68,8 +73,9 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule
   ],
-  providers: [,
-    AngularFireDatabase
+  providers: [
+    AngularFireDatabase,
+    ProductFetchingService
   ],
   bootstrap: [AppComponent]
 })

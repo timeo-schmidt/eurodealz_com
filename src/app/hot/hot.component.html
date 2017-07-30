@@ -1,6 +1,8 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-lg-3 col-md-4 col-sm-6">
+
+
+    <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let item of hotProducts">
       <div class="item-card">
         <div class="voting-header">
           <div class="voting-panel">
@@ -10,7 +12,7 @@
               </div>
             </div>
             <div class="voting-temperature">
-              756°
+              {{ item.hotness }}°
             </div>
             <div class="vote-plus voting-button">
               <div class="voting-symbol">
@@ -19,32 +21,36 @@
             </div>
           </div>
         </div>
-        <div class="image-box"></div>
+        <div class="image-box" [ngStyle]="{'background-image': 'url(' + item.imgURL + ')'}"></div>
         <div class="price-tag">
-          25,00€
+          {{ item.price }}€
         </div>
         <div class="action-button-panel">
           <div class="share-button orange-gradient">
             <i class="material-icons share-icon">share</i>
           </div>
           <div class="to-deal-button orange-gradient">
-            <div class="deal-text">
+            <a [attr.href]="item.url">
+              <div class="deal-text">
                 ZUM DEAL
-            </div>
+              </div>
+            </a>
           </div>
         </div><br /><br /><br /><br />
         <div class="item-description">
-          Hersteller: Belvedere Land: Polen Art: Vodka Alkoholgehalt: 40 % Vol. Inhalt: 0,70 ltr. ...
+          {{ item.title }}
         </div>
         <div class="author-panel">
           <div class="author-image">
 
           </div>
           <div class="author-name">
-            von timeoschmidt
+            {{ item.author }}
           </div>
         </div>
       </div>
     </div>
+
+
   </div>
 </div>

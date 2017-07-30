@@ -1,0 +1,94 @@
+<div class="admin-panel-wrapper" *ngIf="adminAuthenticated">
+  <div class="admin-welcome">
+    Admin Control-Centre
+  </div>
+
+  <div class="admin-description">
+    Du bist im Admin-Panel. Änderungen, die Du hier veranlässt werden automatisch auf die Datenbank hochgeladen und werden sofort Live angezeigt. Sei Vorsichtig.
+  </div>
+  <br />
+
+  <div class="row">
+    <div class="col col-md-6 col-xs-12">
+
+
+      <div class="add-products-wrapper">
+        <br />
+        <h2>Artikel Hinzufügen</h2> Artikel-Typ
+        <select [(ngModel)]="item_type" name="item_type">
+          <option value="normal" [ngValue]="normal">Normal</option>
+          <option value="selected" [ngValue]="selected">Selected</option>
+        </select>
+        <br /><br /><br /> Artikel-Titel:
+        <br />
+        <input  type="text" [(ngModel)]="item_title" name="item_title"><br> Artikel-Beschreibung:<br>
+        <textarea [(ngModel)]="item_description" name="item_description" rows="5" cols="50">
+          </textarea>
+        <br />Preis des Angebots<br />
+        <input [(ngModel)]="item_price" type="number" step="0.01" name="item_price" placeholder="xx,xx">€
+        <br />
+        <br /><br /> Artikel-URL (Zur Verkaufsseite):
+        <br />
+        <input [(ngModel)]="item_url" type="text" name="item_url">
+        <br />ArtikelBild-URL (Online Link zum Artikelfoto)<br />
+        <input [(ngModel)]="item_imgurl" type="text" name="item_imgurl">
+        <br /><br /><br />
+        <h4>Optionale Parameter</h4><br /><br />Item Hotness (Gradanzahl)<br />
+        <input [(ngModel)]="item_hotness" type="text" name="item_hotness" />°
+        <br />Author (Artikelersteller)
+        <br /> <input [(ngModel)]="item_author" type="text" name="item_author" />
+        <br /><br />
+        <div class="errorMsg">
+          {{ errorMessageCreateItem }}
+        </div>
+        <div class="successMsg">
+          {{ successMessageCreateItem }}
+        </div><br />
+        <button (click)="addItem();" type="button" class="btn btn-success text-center">
+          Deal hinzufügen
+        </button>
+        <br /><br />
+        <br /><br />
+      </div>
+
+
+    </div>
+    <div class="col col-md-6 col-xs-12">
+      <div class="delete-products-wrapper">
+        <br /><br />
+        <h2>Artikel Entfernen</h2><br />
+        Artikel-Typ:
+        <select name="delete_type" [(ngModel)]="delete_type" (change)="selectChanged()">
+          <option value="normal" [ngValue]="normal">Normal</option>
+          <option value="selected" [ngValue]="selected">Selected</option>
+        </select>
+        <br /><br />
+          <table>
+            <tr>
+              <th>Artikel-Titel</th>
+              <th>Artikel-Preis</th>
+              <th>Löschen?</th>
+            </tr>
+            <!-- <tr>
+              <td>Test-Title</td>
+              <td>22,00€</td>
+              <td class="delete" (click)="deleteItem(1)">Löschen?</td>
+            </tr> -->
+            <tr *ngFor="let item of deletedProducts; let i = index">
+              <td>{{item.title}}</td>
+              <td>{{item.price}}€</td>
+              <td class="delete" (click)="deleteItem(i)">Löschen?</td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<div class="no-access" *ngIf="!adminAuthenticated">
+  <h1>Du musst als Admin eingeloggt sein, um das Admin-Panel zu betreten.</h1>
+  <h2>Logge dich über das User Icon oben Links mit deinem Admin Konto an.</h2>
+  <h3>Alle unsere "Write"-Aktionen sind durch ausführliche Firebase Security Rules doppelt gesichert.</h3>
+</div>
